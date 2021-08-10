@@ -15,9 +15,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -30,13 +32,38 @@ class MainActivity : ComponentActivity() {
             ComposeFoundationTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-//                    RectangleShapeDemo()
-//                    CircleShapeDemo()
-//                    RoundedCornerShapeDemo()
-                    CutCornerShapeDemo()
+                    TextExample()
                 }
             }
         }
+    }
+}
+
+//text
+@Composable
+fun TextExample(){
+    Column {
+        Text("Just Text")
+        Text("Text with cursive font", style = TextStyle(fontFamily = FontFamily.Cursive))
+        Text(
+            text = "Text with LineThrough",
+            style = TextStyle(textDecoration = TextDecoration.LineThrough)
+        )
+        Text(
+            text = "Text with underline",
+            style = TextStyle(textDecoration = TextDecoration.Underline)
+        )
+        Text(
+            text = "Text with underline, linethrough and bold",
+            style = TextStyle(
+                textDecoration = TextDecoration.combine(
+                    listOf(
+                        TextDecoration.Underline,
+                        TextDecoration.LineThrough
+                    )
+                ), fontWeight = FontWeight.Bold
+            )
+        )
     }
 }
 
@@ -173,9 +200,6 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     ComposeFoundationTheme {
-//        RectangleShapeDemo()
-//        CircleShapeDemo()
-//        RoundedCornerShapeDemo()
-        CutCornerShapeDemo()
+        TextExample()
     }
 }
