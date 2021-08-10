@@ -8,6 +8,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.runtime.*
@@ -27,10 +28,42 @@ class MainActivity : ComponentActivity() {
             ComposeFoundationTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    LazyColumnDemo()
+                    LazyRowDemo()
                 }
             }
         }
+    }
+}
+
+//lazyRow
+@Composable
+fun LazyRowDemo() {
+    val list = listOf(
+        "A", "B", "C", "D"
+    ) + ((0..100).map { it.toString() })
+    LazyRow(modifier = Modifier.fillMaxHeight()) {
+        items(items = list, itemContent = { item ->
+            Log.d("COMPOSE", "This get rendered $item")
+            when (item) {
+                "A" -> {
+                    Text(text = item, style = TextStyle(fontSize = 80.sp))
+                }
+                "B" -> {
+                    Button(onClick = {}) {
+                        Text(text = item, style = TextStyle(fontSize = 80.sp))
+                    }
+                }
+                "C" -> {
+                    //Do Nothing
+                }
+                "D" -> {
+                    Text(text = item)
+                }
+                else -> {
+                    Text(text = item, style = TextStyle(fontSize = 80.sp))
+                }
+            }
+        })
     }
 }
 
@@ -96,6 +129,6 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     ComposeFoundationTheme {
-        LazyColumnDemo()
+        LazyRowDemo()
     }
 }
