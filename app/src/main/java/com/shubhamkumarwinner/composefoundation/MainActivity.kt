@@ -3,12 +3,15 @@ package com.shubhamkumarwinner.composefoundation
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.*
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import com.shubhamkumarwinner.composefoundation.ui.theme.ComposeFoundationTheme
@@ -20,11 +23,18 @@ class MainActivity : ComponentActivity() {
             ComposeFoundationTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    BaseTextFieldDemo()
+                    ImageResourceDemo()
                 }
             }
         }
     }
+}
+
+//image
+@Composable
+fun ImageResourceDemo() {
+    val image: Painter = painterResource(id = R.drawable.pic)
+    Image(painter = image,contentDescription = "")
 }
 
 //baseTextField
@@ -50,6 +60,6 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     ComposeFoundationTheme {
-        BaseTextFieldDemo()
+        ImageResourceDemo()
     }
 }
