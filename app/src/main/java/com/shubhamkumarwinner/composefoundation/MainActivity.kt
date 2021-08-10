@@ -30,7 +30,10 @@ class MainActivity : ComponentActivity() {
             ComposeFoundationTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    LazyVerticalGridDemo()
+//                    RectangleShapeDemo()
+//                    CircleShapeDemo()
+//                    RoundedCornerShapeDemo()
+                    CutCornerShapeDemo()
                 }
             }
         }
@@ -170,6 +173,9 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     ComposeFoundationTheme {
-        LazyVerticalGridDemo()
+//        RectangleShapeDemo()
+//        CircleShapeDemo()
+//        RoundedCornerShapeDemo()
+        CutCornerShapeDemo()
     }
 }
