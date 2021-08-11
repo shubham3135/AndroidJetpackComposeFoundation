@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
             ComposeFoundationTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    CanvasDrawExample()
+                    CrossFadeDemo()
                 }
             }
         }
@@ -225,6 +225,6 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     ComposeFoundationTheme {
-        CanvasDrawExample()
+        CrossFadeDemo()
     }
 }
